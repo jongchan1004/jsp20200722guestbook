@@ -18,12 +18,14 @@ private static WriteMessageService instance = new WriteMessageService();
 	private WriteMessageService() {	
 	}
 	
-	public void write(Message message) {
+	public boolean write(Message message) {
+		/*
 		if (message.getGuestName() == null || message.getGuestName().isEmpty()) {
 			throw new IllegalArgumentException("invalid guest name");
 		} else if (message.getPassword() == null || message.getPassword().isEmpty()) {
 			throw new IllegalArgumentException("암호가 지정되어 있지 않음");
 		}
+		*/
 		
 		Connection conn = null;
 		try {
@@ -32,9 +34,12 @@ private static WriteMessageService instance = new WriteMessageService();
 			messageDao.insert(conn, message);
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		} finally {
 			JdbcUtil.close(conn);
 		}
+		
+		return true;
 	}
 
 }
