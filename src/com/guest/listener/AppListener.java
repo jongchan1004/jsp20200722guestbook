@@ -15,6 +15,8 @@ import org.apache.commons.dbcp2.PoolingDriver;
 import org.apache.commons.pool2.impl.GenericObjectPool;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 
+import com.mysql.cj.jdbc.AbandonedConnectionCleanupThread;
+
 /**
  * Application Lifecycle Listener implementation class AppListener
  *
@@ -34,6 +36,7 @@ public class AppListener implements ServletContextListener {
      */
     public void contextDestroyed(ServletContextEvent sce)  { 
          // TODO Auto-generated method stub
+    	AbandonedConnectionCleanupThread.checkedShutdown();
     }
 
 	/**
