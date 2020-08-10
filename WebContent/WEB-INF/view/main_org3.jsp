@@ -96,10 +96,8 @@ ${info }
 				${message.message }
 				
 				<!--  <button data-message-id="${message.id}" class="btn btn-danger btn-delete">삭제하기</button> -->
-				<!--  <a data-toggle="modal" href="#exampleModal"
-						data-message-id="${message.id }" class="btn-delete">삭제하기</a> -->
-				<button data-toggle="modal" data-target="#exampleModal"
-						data-message-id="${message.id }" class="btn btn-outline-primary">삭제하기</button>
+				<a data-toggle="modal" href="#exampleModal"
+						data-message-id="${message.id }" class="btn-delete">삭제하기</a>
 			</div>
 		</div>
 	</c:forEach>
@@ -133,28 +131,34 @@ id: <input id="delete-input-id" type="text" name="id" value="" /> <br />
 </form>
 </div>
 --%>
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel">암호 확인</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 				<div class="modal-body">
 					<form id="delete-form" action="delete" method="post">
-						<input type="text" class="d-none form-control" name="id" id="recipient-name">
+						<input type="text" class="d-none form-control" name="id"
+							id="recipient-name">
 
 						<div class="form-group">
-							<label for="message-text" class="col-form-label">암호:</label>
-							<input type="password" name="password" class="form-control" id="message-text">
+							<label for="message-text" class="col-form-label">암호:</label> <input
+								type="password" name="password" class="form-control"
+								id="message-text">
 						</div>
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					<input class="btn btn-danger" type="submit" form="delete-form" value="삭제" />
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Close</button>
+					<input class="btn btn-danger" type="submit" form="delete-form"
+						value="삭제" />
 				</div>
 			</div>
 		</div>
